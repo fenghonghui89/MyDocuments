@@ -34,7 +34,7 @@ config.xml要放在最外层目录，如果放在工程目录内，cordova会提
 libCordova.a
 MobileCoreServices
 AssetsLibrary
-CoreLocation.frameworkß
+CoreLocation.framework
 CoreGraphics.framework
 ```
 
