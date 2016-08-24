@@ -10,7 +10,7 @@
 
 - markdown-preview-opener 自动打开预览
 - markdown-scroll-sync 预览自动滚动
-- Markdown TOC 方便给文章插入目录树
+- Markdown TOC 方便给文章插入目录树（经常不响应）
 - Markdown-Writer 方便写作，例如快速插入图片
 - Pretty JSON 格式化json内容
 - docblockr 方便写注释
