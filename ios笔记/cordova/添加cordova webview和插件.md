@@ -92,6 +92,17 @@ viewController.startPage = @"my.html”;//指定网页文件夹的html文件
 在config.xml添加<allow-navigation href="*" />
 ```
 
+- 3.如果是https网站，额外要在AppDelegate.m添加如下代码:
+
+```
+@implementation NSURLRequest(DataController)
++ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host
+{
+    return YES;
+}
+@end
+```
+
 # 注意事项
 
 以默认网页调试为例，所有修改涉及的文件，可以从“通过cordova创建的新项目”里面拷贝过来，但注意要拷贝正确，以及做适当修改
