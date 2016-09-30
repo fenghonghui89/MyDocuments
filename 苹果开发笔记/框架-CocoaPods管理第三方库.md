@@ -22,7 +22,3 @@ pod 'AFNetworking', '~> 2.0'
 
 - 进入项目根目录，执行导入命令：pod install，会按照Podfile文件安装指定版本
 - pod update - 如果Podfile文件没有指定版本 会安装最新版本
-
-
-## 更新gem
-sudo gem update
