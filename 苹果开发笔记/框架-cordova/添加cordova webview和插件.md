@@ -73,12 +73,14 @@ viewController.wwwFolderName = @"www”;//指定网页文件夹
 viewController.startPage = @"my.html”;//指定网页文件夹的html文件
 ```
 
-- 2.如果需要打开特定首页，在config.xml里面做如下修改：
+- 2.如果需要打开特定首页，而不是默认的项目内index.html，在config.xml里面做如下修改：
 
 ```
 <content src="http://www.baidu.com" /> //默认为index.html
 <access origin="*" />
 <allow-navigation href="*" /> //允许全部http及https网站
+<allow-navigation href="http://*/*" />
+<allow-navigation href="https://*/*" />
 ```
 或者做如下修改
 ```
