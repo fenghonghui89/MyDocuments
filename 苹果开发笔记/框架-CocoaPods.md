@@ -1,6 +1,6 @@
 
 ## 安装、更新：
-sudo gem install cocoapods
+sudo gem install cocoapods （npm上面没有cocoapods，因为cocoapods是基于ruby的）
 pod setup
 
 pod install --verbose --no-repo-update
