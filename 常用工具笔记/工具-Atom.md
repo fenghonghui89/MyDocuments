@@ -14,7 +14,7 @@
 - Markdown-Writer 方便写作，例如快速插入图片
 - Pretty JSON 格式化json内容
 - docblockr 方便写注释
-- block-comment 注释语句
+- block-comment 注释语句 Ctrl + Alt + Cmd + /
 
 
 # snippet技巧

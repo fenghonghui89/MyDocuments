@@ -67,14 +67,21 @@ DocumentRoot "/Users/hanyfeng/ApacheWebDoc"
 </Directory>
 ```
 
-- 5.保存以上修改，sudo apachectl restart
+- 5.打开/etc/hosts，添加如下语句，如果提示不是所有者无法修改，用其他编辑器修改，例如Atom
+
+```
+127.0.0.1 mysites
+```
+
+- 6.保存以上修改，用apachectl configtest检查配置，ok就重启Apache
+    然后pc浏览器可以通过http://mysites访问，手机浏览器可以通过http://192.168.x.x访问ß
 
 
 
 
 
 
-## 启动虚拟主机
+## 启动虚拟主机(单单做以下配置未跑通，未知是否src路径错误所致..未知效果是否跟上面的一样)
 
 - 1.打开/etc/apache2/httpd.conf 找到下面语句，解除注释
 
@@ -95,7 +102,7 @@ DocumentRoot "/Users/hanyfeng/ApacheWebDoc"
 - 3.打开/etc/apache2/users/username.conf，添加如下配置（如果没有）
 
 ```
-<Directory "/Users/hanyfeng/ApacheWebDoc">
+<Directory "/Users/hanyfeng/Desktop/ApacheWebDoc">
   AllowOverride All
   Options Indexes MultiViews FollowSymLinks
   Require all granted
@@ -113,7 +120,7 @@ DocumentRoot "/Users/hanyfeng/ApacheWebDoc"
 </VirtualHost>
 
 <VirtualHost *:80>
-    DocumentRoot "/Users/hanyfeng/ApacheWebDoc"
+    DocumentRoot "/Users/hanyfeng/Desktop/ApacheWebDoc"
     ServerName mysites
     ErrorLog "/Users/hanyfeng/Desktop/ApacheErrorLog/sites-error_log"
     CustomLog "/Users/hanyfeng/Desktop/ApacheCustomLog/sites-access_log" common
@@ -126,7 +133,7 @@ DocumentRoot "/Users/hanyfeng/ApacheWebDoc"
 </VirtualHost>
 ```
 
-- 5.打开/etc/hosts，添加如下语句
+- 5.打开/etc/hosts，添加如下语句，如果提示不是所有者无法修改，用其他编辑器修改，例如Atom
 
 ```
 127.0.0.1 mysites
