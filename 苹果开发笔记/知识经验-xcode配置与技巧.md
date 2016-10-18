@@ -23,3 +23,6 @@ xcode sdk 路径
 最佳label大小——command+=
 模拟器中呼叫出通话状态栏——command+Y
 对齐代码：control+i
+
+xcode8
+添加注释 command+alt+/
