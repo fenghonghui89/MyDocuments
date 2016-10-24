@@ -1,6 +1,4 @@
-
-
-快捷键
+phpstorm快捷键
 
 shift+command+f 全局搜索
 ctrl+shift+r 运行当前页面

@@ -1,7 +1,10 @@
 
+# svn
 
-# 命令
 
+# git
+
+## 命令
 commit:HEAD^ / HEAD~1 / 上一个版本号
 
 ## 查看

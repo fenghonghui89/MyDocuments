@@ -1,4 +1,12 @@
 
+# svn
+svn冲突 提示xxx.xcodeproj无法解析 把== <<< 等地方删除 然后显示包文件 把mine/r111/r....删除
+要在project所在文件夹创建对应文件夹，才能在项目中创建文件夹
+如果提示文件冲突无法上传，找到冲突的地方，打开文件夹，会有几个.mine .rxxx .rxxx文件 删除就可以了
+http://blog.csdn.net/huanghuanghbc/article/details/8559968
+
+
+# git
 
 ## 处于new版本 - 选择过去的某个a版本
 - 提交回滚：提交a版本的相反，即如果a版本是添加了某两个文件，则提交的是删除那两个文件

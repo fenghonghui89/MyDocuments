@@ -8,3 +8,7 @@ ionic start cutePuppyPics tutorial --v2 |创建v2版本 带侧栏
 ionic platform add ios |添加平台
 ionic emulate ios |用模拟器运行
 ionic info |查看相关组件及版本
+
+# 杂
+ionic 发请求没有请求头 httprequestwithappid
+cordova filecache插件都是js做主体
