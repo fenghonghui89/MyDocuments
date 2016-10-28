@@ -65,34 +65,41 @@ git merge dev|合并指定分支到当前分支
 
 HEAD（最新版本） / HEAD^（上一个版本） / HEAD~1（上一个版本） / c86d14（某个版本号）
 
-提交到本地 未提交到远端
-git reset xxx.txt|无效
-git reset HEAD xxx.txt|无效
-git reset --hard xxx.txt 无效
-git reset HEAD~1 xxx.txt |未知
-git reset HEAD^ xxx.txt |未知
-git reset c86d14 xxx.txt 未知
-git reset HEAD~1 |当前本地分支回退到a-1版本，丢弃暂存区修改，工作区修改不变
-git reset HEAD^ 当前本地分支回退到a-1版本，丢弃暂存区修改，工作区修改不变
-git reset c86d14 | 当前本地分支回退到某个版本，丢弃暂存区修改，工作区修改不变
+工作区有改动 未提交到暂存区
+rm xxx.txt|当工作区有新增文件时可用，删除文件（即丢弃工作区修改）。因为文件未加入到git所以没有修改提交到暂存区。
+git checkout -- xxx.txt|当工作区的某文件被修改或者被删除时可用，丢弃工作区修改。其实是用版本库里的版本替换工作区的版本。
 
-提交到本地 已提交到远端
-git reset xxx.txt|无效
-git reset HEAD xxx.txt|无效
-git reset --hard xxx.txt 无效
+提交到暂存区，未提交到本地分支
+git reset xxx.txt|丢弃暂存区中指定文件的修改，工作区的修改不变
+
+提交到本地分支 未提交到远端
+git reset xxx.txt|无变化
+git reset --hard xxx.txt 报错 无效
+git reset HEAD xxx.txt|无变化
 git reset HEAD~1 xxx.txt |暂存区为上一个版本，工作区为当前版本，如果把工作区修改提交到暂存区，则互相抵消，无变化
 git reset HEAD^ xxx.txt |暂存区为上一个版本，工作区为当前版本，如果把工作区修改提交到暂存区，则互相抵消，无变化
-git reset c86d14 xxx.txt 暂存区为某个版本，工作区为当前版本，如果把工作区修改提交到暂存区，则互相抵消，无变化
-git reset c86d14 | 当前本地分支回退到某个版本，丢弃暂存区修改，工作区修改不变
-git reset HEAD~1 |当前本地分支回退到某个版本，丢弃暂存区修改，工作区修改不变
-git reset HEAD^ 当前本地分支回退到某个版本，丢弃暂存区修改，工作区修改不变
+git reset c86d14 xxx.txt 暂存区为指定版本，工作区为当前版本，如果把工作区修改提交到暂存区，则互相抵消，无变化
+git reset HEAD~1 |当前本地分支回退到a-1版本，丢弃暂存区修改，工作区为当前版本
+git reset HEAD^ 当前本地分支回退到a-1版本，丢弃暂存区修改，工作区为当前版本
+git reset c86d14 | 当前本地分支回退到指定版本，丢弃暂存区修改，工作区为当前版本
 
-## 提交修改到暂存区与提交暂存区所有修改到本地当前分支
+提交到本地分支 已提交到远端
+git reset xxx.txt|无变化
+git reset --hard xxx.txt 报错 无效
+git reset HEAD xxx.txt|无变化
+git reset HEAD~1 xxx.txt |暂存区为上一个版本，工作区为当前版本，如果把工作区修改提交到暂存区，则互相抵消，无变化
+git reset HEAD^ xxx.txt |暂存区为上一个版本，工作区为当前版本，如果把工作区修改提交到暂存区，则互相抵消，无变化
+git reset c86d14 xxx.txt 暂存区为指定版本，工作区为当前版本，如果把工作区修改提交到暂存区，则互相抵消，无变化
+git reset HEAD~1 |当前本地分支回退到a-1版本，丢弃暂存区修改，工作区为当前版本
+git reset HEAD^ 当前本地分支回退到a-1版本，丢弃暂存区修改，工作区为当前版本
+git reset c86d14 | 当前本地分支回退到指定版本，丢弃暂存区修改，工作区为当前版本
+
+## 提交修改到暂存区、提交暂存区所有修改到本地当前分支
 命令|作用
 :-|:-
 git add xxx.txt|把工作区中指定文件的修改（增删改）提交到暂存区
 git commit -m "xxx"|撰写说明，提交暂存区中所有修改到本地当前分支
-rm test.jpg|当工作区有新增文件时可用，删除文件（即丢弃工作区修改）。因为文件未加入到git所以没有修改提交到暂存区。
+rm xxx.txt|当工作区有新增文件时可用，删除文件（即丢弃工作区修改）。因为文件未加入到git所以没有修改提交到暂存区。
 git checkout -- xxx.txt|当工作区的某文件被修改或者被删除时可用，丢弃工作区修改。其实是用版本库里的版本替换工作区的版本。
 git rm xxx.txt|删除文件并提交修改到暂存区。该文件只能是未经修改和暂存的，已加入到git里面的文件。
 git rm -f xxx.txt|强制删除文件并提交修改到暂存区。该文件为已加入到git里面，且已经被修改或暂存的。
