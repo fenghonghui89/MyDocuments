@@ -58,11 +58,11 @@ git branch dev|创建本地分支
 git branch -a|显示本地和远程分支
 git branch -r|只显示远程分支
 git branch -d dev|删除本地分支
-git reset --hard dev |当前本地分支回退到某个版本
 git checkout dev|切换到指定本地分支
 git checkout -b dev|创建并切换到指定本地分支
 git merge dev|合并指定分支到当前分支
 
+## 恢复
 HEAD（最新版本） / HEAD^（上一个版本） / HEAD~1（上一个版本） / c86d14（某个版本号）
 
 工作区有改动 未提交到暂存区
@@ -99,11 +99,9 @@ git reset c86d14 | 当前本地分支回退到指定版本，丢弃暂存区修�
 :-|:-
 git add xxx.txt|把工作区中指定文件的修改（增删改）提交到暂存区
 git commit -m "xxx"|撰写说明，提交暂存区中所有修改到本地当前分支
-rm xxx.txt|当工作区有新增文件时可用，删除文件（即丢弃工作区修改）。因为文件未加入到git所以没有修改提交到暂存区。
-git checkout -- xxx.txt|当工作区的某文件被修改或者被删除时可用，丢弃工作区修改。其实是用版本库里的版本替换工作区的版本。
 git rm xxx.txt|删除文件并提交修改到暂存区。该文件只能是未经修改和暂存的，已加入到git里面的文件。
 git rm -f xxx.txt|强制删除文件并提交修改到暂存区。该文件为已加入到git里面，且已经被修改或暂存的。
-git reset xxx.txt|丢弃暂存区中指定文件的修改，工作区中的修改不变
+
 
 ## 仓库关联
 命令|作用
