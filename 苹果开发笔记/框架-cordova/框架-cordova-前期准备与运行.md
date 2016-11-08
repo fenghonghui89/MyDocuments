@@ -52,3 +52,7 @@ $ cordova run ios —device
 
 - 附：更新cordova 查看cordov版本及信息 更新平台
 see The Command-Line Interface
+```
+Update your project to the latest version of Cordova:
+$ cordova platform update [ios/android]
+```
