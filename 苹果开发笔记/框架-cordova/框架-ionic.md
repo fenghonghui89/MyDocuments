@@ -96,3 +96,7 @@ export class AppModule {}
 http://docs.ionic.io/services/auth/ 点击平台跳转到对应平台的接入教程
 facebook native auth 要先到cordova搜索下载facebook的plugin
 In-App Browser则按照教程安装cordova-plugin-inappbrowser
+
+
+# ionic native
+ionic native自带的分享插件.m要修改url编码代码，否则无法分享url
