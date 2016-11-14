@@ -1,5 +1,5 @@
 
-## 安装
+## 安装cocoapods
 1.$ sudo gem install cocoapods
 npm上面没有cocoapods，因为cocoapods是基于ruby的
 sudo gem install cocoapods --pre 安装测试版
@@ -26,14 +26,26 @@ $ sudo gem update --system
 2.$ pod setup
 
 
-## 更新
+
+## 更新cocoapods
 如果安装的时候使用了sudo，升级的时候一样需要使用该关键字，不然升级完了以后又会出现路径不匹配问题
 $ sudo gem install cocoapods
 
 
+## 设置cocoapods使用的仓库
+查看cocoapod使用的仓库，默认是https://github.com/CocoaPods/Specs.git
+pod repo
 
-## 使用
-1.进入项目根目录，创建Podfile文件：touch Podfile
+如果嫌速度慢，可以移除默认的仓库，添加新的速度更快的库
+pod repo remove master
+pod repo add master http://git.oschina.net/akuandev/Specs.git
+
+更新设置
+pod repo update
+
+
+## 使用cocoapods管理项目；移除cocoapods对项目的管理（还原项目）
+1.进入项目根目录，创建Podfile文件：touch Podfile，或者用pod init命令自动创建
 
 2.编辑Podfile
 ```
@@ -44,6 +56,7 @@ pod 'SBJson', '~> 4.0.0'
 
 platform :ios, '7.0'
 pod 'AFNetworking', '~> 2.0'
+
 end
 ```
 
@@ -52,3 +65,18 @@ pod install - 会按照Podfile文件安装指定版本
 pod update - 如果Podfile文件没有指定版本 会安装最新版本
 pod install --verbose --no-repo-update
 pod update --verbose --no-repo-update
+--verbose:显示更多debug信息
+
+
+移除cocoapods对项目的管理，即还原项目
+pod deintegrate
+
+
+
+
+## 其他
+如果你在安装一个第三方库之前，想要先试用一下，就可以使用try命令。只需要在try的后面加上你想试用的第三方的名称即可
+pod try AFNetworking
+
+安装过程中，CocoPods会使用递归来分析所有的需求，并且建立一个代码相关性的图，最后将Podfile序列化为Podfile.lock
+比如，如果两个库都需要使用AFNetworking，CocoaPods会确定一个同时能被这两库使用的版本，然后将同一个安装版本链接到两个不同的库中。
