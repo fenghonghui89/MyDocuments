@@ -1,14 +1,16 @@
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [添加cordova webview和插件](#添加cordova-webview和插件)
+- [添加cordova webview](#添加cordova-webview)
+	- [1.把cordova文件移入到已有项目](#1把cordova文件移入到已有项目)
+	- [2.用cocoapods给项目添加cordova](#2用cocoapods给项目添加cordova)
 - [打开其他页面](#打开其他页面)
 - [注意事项](#注意事项)
 
 <!-- /TOC -->
 
-# 添加cordova webview和插件
-
+# 添加cordova webview
+## 1.把cordova文件移入到已有项目
 - 1.已有项目Demo，用cordova create命令新建一个项目，添加ios平台，cordova  build
 
 
@@ -63,6 +65,10 @@ viewController.view.frame = [UIScreen mainScreen].bounds;
 [self.view addSubview:viewController.view];
 self.viewController = viewController;//注意必须提升生命周期，否则会崩溃
 ```
+
+## 2.用cocoapods给项目添加cordova
+参考:http://www.jianshu.com/p/f47ac618ba44
+
 
 # 打开其他页面
 

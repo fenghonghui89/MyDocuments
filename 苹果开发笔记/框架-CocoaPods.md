@@ -5,22 +5,15 @@ npm上面没有cocoapods，因为cocoapods是基于ruby的
 sudo gem install cocoapods --pre 安装测试版
 ```
 执行完install命令半天没反应
-这有可能是因为Ruby的默认源使用的是cocoapods.org，国内访问这个网址有时候会有问题，网上的一种解决方案是将远替换成淘宝的，替换方式如下：
+这有可能是因为Ruby的默认源使用的是cocoapods.org，国内访问这个网址有时候会有问题
+网上的一种解决方案是将远替换成淘宝的，替换方式如下：
 $ gem sources --remove https://rubygems.org/
 //等有反应之后再敲入以下命令
 $ gem sources -a https://ruby.taobao.org/
 
-要想验证是否替换成功了，可以执行：
-$ gem sources -l
+要想验证是否替换成功了，可以执行$ gem sources -l查看
 
-正常的输出是：
-*** CURRENT SOURCES ***
-https://ruby.taobao.org/
-```
-```
-gem版本过老
-gem是管理Ruby库和程序的标准包，如果它的版本过低也可能导致安装失败，解决方案自然是升级gem，执行下述命令即可：
-$ sudo gem update --system
+gem是管理Ruby库和程序的标准包，如果它的版本过低也可能导致安装失败，解决方案自然是升级gem
 ```
 
 2.$ pod setup
@@ -71,7 +64,8 @@ pod update --verbose --no-repo-update
 移除cocoapods对项目的管理，即还原项目
 pod deintegrate
 
-
+查看某个库在cocoapods中的信息
+pod search Cordova
 
 
 ## 其他
