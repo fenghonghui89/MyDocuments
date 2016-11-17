@@ -37,7 +37,7 @@ pod repo add master http://git.oschina.net/akuandev/Specs.git
 pod repo update
 
 
-## 使用cocoapods管理项目；移除cocoapods对项目的管理（还原项目）
+## 使用cocoapods管理项目
 1.进入项目根目录，创建Podfile文件：touch Podfile，或者用pod init命令自动创建
 
 2.编辑Podfile
@@ -61,14 +61,19 @@ pod update --verbose --no-repo-update
 --verbose:显示更多debug信息
 
 
+
+
+## 其他
 移除cocoapods对项目的管理，即还原项目
 pod deintegrate
 
 查看某个库在cocoapods中的信息
 pod search Cordova
 
+查看运行环境及项目信息，会显示Podfile
+pod env
 
-## 其他
+
 如果你在安装一个第三方库之前，想要先试用一下，就可以使用try命令。只需要在try的后面加上你想试用的第三方的名称即可
 pod try AFNetworking
 
