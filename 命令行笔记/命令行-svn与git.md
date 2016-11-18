@@ -1,4 +1,27 @@
 
+
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [svn](#svn)
+		- [常见问题](#常见问题)
+- [git](#git)
+	- [启用git](#启用git)
+	- [查看记录](#查看记录)
+	- [提交修改到暂存区](#提交修改到暂存区)
+	- [提交暂存区所有修改到本地当前分支](#提交暂存区所有修改到本地当前分支)
+	- [推送提交](#推送提交)
+	- [恢复](#恢复)
+	- [分支操作](#分支操作)
+	- [仓库关联](#仓库关联)
+	- [常见问题](#常见问题)
+		- [处于new版本 - 选择过去的某个a版本](#处于new版本-选择过去的某个a版本)
+		- [删除远程仓库的某些/某个版本](#删除远程仓库的某些某个版本)
+		- [忽略文件，使文件不被git管理](#忽略文件使文件不被git管理)
+		- [git知识点](#git知识点)
+
+<!-- /TOC -->
+
+
 # svn
 ### 常见问题
 - svn冲突 提示xxx.xcodeproj无法解析 把== <<< 等地方删除 然后显示包文件 把mine/r111/r....删除
@@ -27,10 +50,21 @@ git log|查看所有提交
 git log --pretty=oneline|只显示版本号和说明
 git log --graph|查看分支合并图
 git log --abbrev-commit|版本号显示为短字符串的版本号
+git log --pretty=oneline --graph --abbrev-commit|短版本号+说明+分支合并图
 git status|查看状态，例如显示有文件新增、删除或者待提交，并提示推荐操作
 git diff|查看当前分支当前修改的内容
 git diff (commit) -- (file)|查看当前分支指定版本指定文件的修改
 git reflog|查看过往的每一次操作（提交、回滚等），可以查看到版本号
+
+## 提交修改到暂存区
+命令|作用
+:-|:-
+git add xxx.txt|把工作区中指定文件的修改（增删改）提交到暂存区
+
+## 提交暂存区所有修改到本地当前分支
+git commit -m "xxx"|撰写说明，提交暂存区中所有修改到本地当前分支
+git rm xxx.txt|删除文件并提交修改到暂存区。该文件只能是已加入到git里面，且未经修改和暂存的。
+git rm -f xxx.txt|强制删除文件并提交修改到暂存区。该文件为已加入到git里面，且已经被修改或暂存的。
 
 
 ## 推送提交
@@ -38,7 +72,7 @@ git reflog|查看过往的每一次操作（提交、回滚等），可以查看
 格式：git push <远程主机名> <本地分支名>:<远程分支名>
 
 ```
-命令|作用
+命令（origin:主机名，dev:分支名）|作用
 :-|:-
 git push|如果当前分支只有一个追踪分支，那么主机名、本地分支名、远程分支名都可以省略
 git push origin dev|省略远程分支名，将本地的master分支推送到origin主机的master分支,如果后者不存在，则会被新建
@@ -50,17 +84,6 @@ git push --force| 强制推送 应该尽量避免使用
 git push -u origin dev|如果当前分支与多个主机存在追踪关系，则可以使用-u选项指定一个默认主机，这样后面就可以不加任何参数使用git push
 git push origin --tags|git push不会推送标签(tag)，除非使用–tags选项
 
-## 分支操作
-命令|作用
-:-|:-
-git branch|查看本地当前分支
-git branch dev|创建本地分支
-git branch -a|显示本地和远程分支
-git branch -r|只显示远程分支
-git branch -d dev|删除本地分支
-git checkout dev|切换到指定本地分支
-git checkout -b dev|创建并切换到指定本地分支
-git merge dev|合并指定分支到当前分支
 
 ## 恢复
 HEAD（最新版本） / HEAD^（上一个版本） / HEAD~1（上一个版本） / c86d14（某个版本号）
@@ -79,9 +102,9 @@ git reset HEAD xxx.txt|无变化
 git reset HEAD~1 xxx.txt |暂存区为上一个版本，工作区为当前版本，如果把工作区修改提交到暂存区，则互相抵消，无变化
 git reset HEAD^ xxx.txt |暂存区为上一个版本，工作区为当前版本，如果把工作区修改提交到暂存区，则互相抵消，无变化
 git reset c86d14 xxx.txt 暂存区为指定版本，工作区为当前版本，如果把工作区修改提交到暂存区，则互相抵消，无变化
-git reset HEAD~1 |当前本地分支回退到a-1版本，丢弃暂存区修改，工作区为当前版本
-git reset HEAD^ 当前本地分支回退到a-1版本，丢弃暂存区修改，工作区为当前版本
-git reset c86d14 | 当前本地分支回退到指定版本，丢弃暂存区修改，工作区为当前版本
+git reset HEAD~1 |当前本地分支回退到a-1版本，丢弃暂存区修改(即没有暂存区修改)，工作区为当前版本
+git reset HEAD^ 当前本地分支回退到a-1版本，丢弃暂存区修改(即没有暂存区修改)，工作区为当前版本
+git reset c86d14 | 当前本地分支回退到指定版本，丢弃暂存区修改(即没有暂存区修改)，工作区为当前版本
 
 提交到本地分支 已提交到远端
 git reset xxx.txt|无变化
@@ -94,13 +117,20 @@ git reset HEAD~1 |当前本地分支回退到a-1版本，丢弃暂存区修改�
 git reset HEAD^ 当前本地分支回退到a-1版本，丢弃暂存区修改，工作区为当前版本
 git reset c86d14 | 当前本地分支回退到指定版本，丢弃暂存区修改，工作区为当前版本
 
-## 提交修改到暂存区、提交暂存区所有修改到本地当前分支
+
+## 分支操作
 命令|作用
 :-|:-
-git add xxx.txt|把工作区中指定文件的修改（增删改）提交到暂存区
-git commit -m "xxx"|撰写说明，提交暂存区中所有修改到本地当前分支
-git rm xxx.txt|删除文件并提交修改到暂存区。该文件只能是未经修改和暂存的，已加入到git里面的文件。
-git rm -f xxx.txt|强制删除文件并提交修改到暂存区。该文件为已加入到git里面，且已经被修改或暂存的。
+git branch|查看本地当前分支
+git branch dev|创建本地分支
+git branch -a|显示本地和远程分支
+git branch -r|只显示远程分支
+git branch -d dev|删除本地指定分支（该分支已经合并到主分支）
+git branch -D dev|删除本地指定分支（该分支还没合并到主分支）
+git checkout dev|切换到指定本地分支
+git checkout -b dev|创建并切换到指定本地分支
+git merge dev|合并指定分支到当前分支
+git merge --abort|取消合并分支
 
 
 ## 仓库关联
@@ -130,4 +160,5 @@ git clone (ssh url/https url)|克隆远端仓库到本地
 
 ### git知识点
 - master分支可以删除
-- HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上。
+- HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。
+当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上。
