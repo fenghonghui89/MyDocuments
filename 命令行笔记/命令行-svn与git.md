@@ -67,7 +67,7 @@ git rm xxx.txt|删除文件并提交修改到暂存区。该文件只能是已�
 git rm -f xxx.txt|强制删除文件并提交修改到暂存区。该文件为已加入到git里面，且已经被修改或暂存的。
 
 
-## 推送提交
+## 将本地分支的更新，推送到远程主机
 ```
 格式：git push <远程主机名> <本地分支名>:<远程分支名>
 
@@ -83,6 +83,20 @@ git push --all origin| 不管是否存在对应的远程分支，将本地的所
 git push --force| 强制推送 应该尽量避免使用
 git push -u origin dev|如果当前分支与多个主机存在追踪关系，则可以使用-u选项指定一个默认主机，这样后面就可以不加任何参数使用git push
 git push origin --tags|git push不会推送标签(tag)，除非使用–tags选项
+
+
+## 取回远程主机某个分支的更新，再与本地的指定分支合并
+```
+格式：git pull <远程主机名> <远程分支名>:<本地分支名>
+```
+命令（origin:主机名，next:远程分支名）|作用
+:-|:-
+git pull origin next:master|取回origin主机的next分支，与本地的master分支合并
+git pull origin next|取回origin/next分支，再与当前分支合并
+git pull origin|本地的当前分支自动与对应的origin主机”追踪分支”(remote-tracking branch)进行合并
+git pull|当前分支自动与唯一一个追踪分支进行合并
+git pull --rebase <远程主机名> <远程分支名>:<本地分支名>|如果合并需要采用rebase模式，可以使用–rebase选项
+
 
 
 ## 恢复
@@ -127,18 +141,36 @@ git branch -a|显示本地和远程分支
 git branch -r|只显示远程分支
 git branch -d dev|删除本地指定分支（该分支已经合并到主分支）
 git branch -D dev|删除本地指定分支（该分支还没合并到主分支）
+git branch --set-upstream dev origin/dev|指定本地分支dev对应远程分支origin/dev
 git checkout dev|切换到指定本地分支
 git checkout -b dev|创建并切换到指定本地分支
 git merge dev|合并指定分支到当前分支
 git merge --abort|取消合并分支
+git merge dev --no-ff -m "merge with no-ff"|强制禁用Fast forward模式，并写入信息，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息
 
 
 ## 仓库关联
 命令|作用
 :-|:-
-git remote add origin (ssh url/https url)|与远端仓库关联 origin可自定义
+git remote -v|查看远程仓库信息
+git remote add origin (ssh url/https url/git url)|与远端仓库关联 origin可自定义
 git remote rm origin|解除与远端仓库的关联
-git clone (ssh url/https url)|克隆远端仓库到本地
+git clone (ssh url/https url/git url)|克隆远端仓库到本地
+
+
+
+## 保存当前工作状态
+```
+情景：在dev开发中途，需要紧急修复master上的bug，必须暂停dev的开发
+```
+命令|作用
+:-|:-
+git stash|保存当前本地分支的工作状态到stash
+git stash list|查看被保存的所有工作状态
+git stash pop|恢复工作状态，同时把stash内容也删除
+git stash apply|恢复工作状态，但不删除stash内容
+git stash drop|删除stash内容
+
 
 
 ## 常见问题
@@ -162,3 +194,10 @@ git clone (ssh url/https url)|克隆远端仓库到本地
 - master分支可以删除
 - HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。
 当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上。
+
+### 多人协作
+1. 首先，可以试图用git push origin branch-name推送自己的修改；
+2. 如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+3. 如果合并有冲突，则解决冲突，并在本地提交；
+4. 没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
+5. 如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
