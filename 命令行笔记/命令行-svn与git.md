@@ -204,10 +204,24 @@ git push origin --tags|一次性推送全部尚未推送到远程的本地标签
 git push origin :refs/tags/v0.9|删除远程某个标签，注意要先删除本地的对应标签
 
 
+## rebase变基
+类似于合并分支，区别是：
+情景：同事a在dev分支上修改并提交到本地，主管b在master分支上修改并提交到远程
+合并分支：合并后，master分支包含master自己的更新内容和dev分支的更新内容，但dev分支只包含dev自己的更新内容
+变基：变基后，master分支包含master自己的更新内容，dev包含master分支的更新内容和dev自己的更新内容
+
+操作：
+$ git checkout dev 跳到dev分支
+$ git rebase master 执行变基
+$ git rebase --continue 如果变基过程中有冲突，解决冲突后git add，但不用git commit，然后执行git rebase --continue
+$ git rebase --abort 终止rebase的行动，并且dev分支会回到rebase开始前的状态
+
+
+
 ## 常见问题
 ### 处于new版本 - 选择过去的某个a版本
 - 提交回滚：提交a版本的相反，即如果a版本是添加了某两个文件，则提交的是删除那两个文件
-- 将master重置到这次提交
+- 将master重置到某次提交
   - 软合并 - 保持所有本地改动：本地索引会回滚到a分支，提示落后多少个版本，内容是new版本的内容且已经缓存，直接拉取可以恢复到new版本
   - 混合合并 - 保持工作副本但重置索引：本地索引会回滚到a分支，提示落后多少个版本，内容是new版本的内容但还没缓存，缓存并拉取才可以恢复到new版本
   - 强行合并：索引和内容为a版本，提示落后多少个版本，直接拉取可以恢复到new版本
