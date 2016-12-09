@@ -40,6 +40,25 @@ http://blog.csdn.net/huanghuanghbc/article/details/8559968
 :-|:-
 git init|把某个目录变成git可管理的仓库
 
+## 自定义git
+git config --global color.ui true|git输出日志时显示颜色
+git check-ignore -v Firebase.h|检查针对某个文件的.gitignore规则是否有错
+
+## 配置别名
+
+git config [-global] alias.xxx '要代替的内容'
+注：-global 全局配置 不写则默认针对当前仓库有效
+例子：
+$ git config alias.br branch
+git br -a 相当于git branch - a
+
+每个仓库的Git配置文件都放在.git/config文件中，别名就在[alias]后面，要删除别名，直接把对应的行删掉即可；而当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中
+
+git config alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"|
+
+
+
+
 
 
 ## 查看记录
@@ -160,9 +179,9 @@ git clone (ssh url/https url/git url)|克隆远端仓库到本地
 
 
 ## 保存当前工作状态
-```
+
 情景：在dev开发中途，需要紧急修复master上的bug，必须暂停dev的开发
-```
+
 命令|作用
 :-|:-
 git stash|保存当前本地分支的工作状态到stash
@@ -171,6 +190,18 @@ git stash pop|恢复工作状态，同时把stash内容也删除
 git stash apply|恢复工作状态，但不删除stash内容
 git stash drop|删除stash内容
 
+
+## 标签
+命令|作用
+:-|:-
+git tag|查看标签列表，排序是按字母排序的
+git tag v0.1 54f7329|给指定commit打标签，省略commit名则默认打在最新的commit上
+git tag -a v0.1 -m "version 0.1 released" 3628164|打标签，-a指定标签名，-m指定说明文字
+git show v0.1|查看某个标签对应的commit，可查看到说明文字
+git tag -d v0.1|删除本地commit的某个标签
+git push origin v1.0|推送本地某个标签到远程
+git push origin --tags|一次性推送全部尚未推送到远程的本地标签
+git push origin :refs/tags/v0.9|删除远程某个标签，注意要先删除本地的对应标签
 
 
 ## 常见问题
