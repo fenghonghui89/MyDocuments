@@ -43,7 +43,7 @@ pod repo update
 2.编辑Podfile
 ```
 platform :ios
-target ‘CocopodsTest’ do
+target 'CocopodsTest' do
 pod 'Reachability',  '~> 3.0.0'
 pod 'SBJson', '~> 4.0.0'
 
