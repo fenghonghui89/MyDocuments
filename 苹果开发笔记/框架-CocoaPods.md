@@ -59,7 +59,7 @@ pod update - 如果Podfile文件没有指定版本 会安装最新版本
 pod install --verbose --no-repo-update
 pod update --verbose --no-repo-update
 --verbose:显示更多debug信息
-
+--no-repo-update:不升级cocoapods的Specs库，提升速度
 
 
 
