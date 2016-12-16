@@ -37,3 +37,6 @@ html dom
 DOM 处理中的常见错误是希望元素节点包含文本。
 在本例中：<title>DOM 教程</title>，元素节点 <title>，包含值为 "DOM 教程" 的文本节点。
 可通过节点的 innerHTML 属性来访问文本节点的值。
+
+
+默认情况下，所有 HTML 元素的位置都是静态的，并且无法移动。如需对位置进行操作，记得首先把元素的 CSS position 属性设置为 relative、fixed 或 absolute
