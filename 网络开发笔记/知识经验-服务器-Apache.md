@@ -58,7 +58,15 @@ DocumentRoot "/Users/hanyfeng/ApacheWebDoc"
 ```
 可选：里面的AllowOverride None 改为AllowOverride All
 
-- 4.在/etc/apache2/users新建文件username.conf(如果没有)，添加以下内容
+- 4.可选，修改要打开的网页
+
+```
+<IfModule dir_module>
+    DirectoryIndex Root.html
+</IfModule>
+```
+
+- 5.在/etc/apache2/users新建文件username.conf(如果没有)，添加以下内容
 
 ```
 <Directory "/Users/hanyfeng/ApacheWebDoc">
@@ -68,7 +76,7 @@ DocumentRoot "/Users/hanyfeng/ApacheWebDoc"
 </Directory>
 ```
 
-- 5.打开/etc/hosts，参考如下语句修改，如果提示不是所有者无法修改，用其他编辑器修改，例如Atom
+- 6.打开/etc/hosts，参考如下语句修改，如果提示不是所有者无法修改，用其他编辑器修改，例如Atom
 
 ```
 127.0.0.1       localhost
@@ -81,7 +89,7 @@ DocumentRoot "/Users/hanyfeng/ApacheWebDoc"
 192.168.3.169   local.hanywebip.com
 ```
 
-- 6.保存以上修改，用apachectl configtest检查配置，ok就重启Apache
+- 7.保存以上修改，用apachectl configtest检查配置，ok就重启Apache
   - pc浏览器通过以下地址访问：
 ```
 127.0.0.1
@@ -92,7 +100,7 @@ http://local.hanyweb.com
 http://hanywebip
 http://local.hanywebip.com
 ```
-  - 手机只能通过192.168.3.169访问
+  - 手机只能通过http://192.168.3.169/访问
 
 
 
@@ -173,4 +181,4 @@ http://local.hanyweb.com
 http://hanywebip
 http://local.hanywebip.com
 ```
-  - 手机只能通过192.168.3.169访问
+  - 手机只能通过http://192.168.3.169/访问
