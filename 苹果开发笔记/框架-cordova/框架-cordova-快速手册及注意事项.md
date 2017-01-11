@@ -26,6 +26,7 @@
 
 - 用safari的开发模式调试，提示错误：TypeError:xxx is not a function. 可能是网页调用的方法名写错了，例如wechatPay写成wechaPay
 - 用safari的开发模式调试，提示错误：ReferenceError: Can't find variable: Tpage 可能是网页调用的对象名写错了，例如Tpages.aliPay写成Tpage.aliPay
+- 如果项目接入cordova，但网页内容是放在服务器上面的，则无法触发插件，必须把网页内容放到项目内才有效
 
 # 快速手册
 
