@@ -24,3 +24,7 @@ exit||退出当前用户
 - 1.用vim写好脚本并保存为xx.sh
 - 2.命令行下执行脚本 ./xx.sh
 - 注：如果提示Permission denied没有权限，则运行命令chmod 777 xx.sh修改文件权限
+
+
+# 其他
+当前路径用./表示
