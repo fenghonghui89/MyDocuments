@@ -93,14 +93,28 @@ DocumentRoot "/Users/hanyfeng/ApacheWebDoc"
   - pc浏览器通过以下地址访问：
 ```
 127.0.0.1
+http://127.0.0.1
 http://localhost
 http://hanyweb
 http://local.hanyweb.com
+
 192.168.3.169
+http://192.168.3.169
 http://hanywebip
 http://local.hanywebip.com
+
+http://..../Root.html
+http://..../PHP_MyServer.php
+http://..../PHP_MyServer.php?a=get_users&uid=10001
 ```
-  - 手机只能通过http://192.168.3.169/访问
+
+  - 手机通过以下地址访问：
+```
+http://192.168.3.169
+http://192.168.3.169/Root.html
+http://192.168.3.169/PHP_MyServer.php
+http://192.168.3.169/PHP_MyServer.php?a=get_users&uid=10001
+```
 
 
 
