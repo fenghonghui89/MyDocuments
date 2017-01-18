@@ -30,13 +30,15 @@ $ cordova platform add ios
 # 编译 运行
 ```
 编译
-cordova build --device --debug/release
-编译后会在以下路径生成ipa
-/Users/hanyfeng/Desktop/Ionic2DemoBase/platforms/ios/build/device/Ionic2Demo.ipa
+cordova build ios --device --debug/release --prod
+* 编译后会在以下路径生成ipa:/Users/hanyfeng/Desktop/Ionic2DemoBase/platforms/ios/build/device/Ionic2Demo.ipa
+* 如果编译dev报错，可能要在build setting选择dev team
+* --prod 压缩main.js,提升启动速度
+* 默认不带参数build模拟器版本
 
 运行
 真机：$ cordova run ios --device
-模拟器：$cordova run ios --emulator --target=iPhone-5
+模拟器：$ cordova run ios --emulator --target=iPhone-5
 ```
 
 

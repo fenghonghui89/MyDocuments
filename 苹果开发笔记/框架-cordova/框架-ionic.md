@@ -10,11 +10,13 @@
 命令|含义
 :-|:-|
 inoic serve |启动网络服务 用浏览器打开网页
+inoic serve --lab|多平台app预览模式
+ionic serve --nolivereload |Serve without live reload
 ionic start MyIonic2Project tutorial --v2 |创建v2版本 带侧栏
 ionic platform add/remove ios |添加平台
 ionic emulate ios |用模拟器运行
 ionic info |查看相关组件及版本
-ionic build ios --device --debug/release |编译，实际上是cordova build
+ionic build ios --device --debug/release --prod|编译，实际上是cordova build
 ionic run ios --device |运行到设备，实际上是cordova run
 
 
