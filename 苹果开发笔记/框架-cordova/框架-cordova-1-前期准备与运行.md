@@ -32,7 +32,7 @@ $ cordova platform add ios
 编译
 cordova build ios --device --debug/release --prod
 * 编译后会在以下路径生成ipa:/Users/hanyfeng/Desktop/Ionic2DemoBase/platforms/ios/build/device/Ionic2Demo.ipa
-* 如果编译dev报错，可能要在build setting选择dev team
+* 如果编译dev报错，可能要在build setting选择dev team，并且config.xml的bundleid要对应项目设置的
 * --prod 压缩main.js,提升启动速度
 * 默认不带参数build模拟器版本
 
