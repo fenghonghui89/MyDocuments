@@ -64,3 +64,4 @@ ionic native - InAppBrowser
 
 # 远程推送
 cordova插件 - cordova-plugin-fcm 1.1.5 "FCMPlugin"
+证书制作参考官方文档，要上传到控制台
