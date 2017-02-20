@@ -218,7 +218,7 @@ $ git rebase --abort 终止rebase的行动，并且dev分支会回到rebase开�
 
 
 
-## 常见问题
+## SourceTree常见问题
 ### 处于new版本 - 选择过去的某个a版本
 - 提交回滚：提交a版本的相反，即如果a版本是添加了某两个文件，则提交的是删除那两个文件
 - 将master重置到某次提交
@@ -230,11 +230,11 @@ $ git rebase --abort 终止rebase的行动，并且dev分支会回到rebase开�
 - 先选择错误版本之前的某个版本，右键，强行合并，刷新，会提示落后x个版本，然后命令行cd到对应项目目录下，执行git push -f完成。注意会把之间的所有提交全部删除，不管远程还是本地
 - 如果只是想删除其中一个版本而不是全部，用“提交回滚”
 
-### 忽略文件，使文件不被git管理
-- 打开全局的忽略列表文件或者指定仓库的忽略列表文件（一般都是.gitignore），添加要被忽略的文件名，如果指定某种后缀的文件，用*.xxx(后缀)
-- 如果决定要忽略前，已经添加该文件到git，除了要修改忽略列表文件，还需要cd到项目目录下，执行命令git rm --cached xxx，删除该文件<br/>
-  如果是SourceTree做客户端，则在提交文件修改时，选择文件 - 右键 - 取消跟踪（效果即是提交一个删除该文件的修改），并修改忽略列表文件
 
+
+
+
+## git常见问题
 ### git知识点
 - master分支可以删除
 - HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。
@@ -246,3 +246,12 @@ $ git rebase --abort 终止rebase的行动，并且dev分支会回到rebase开�
 3. 如果合并有冲突，则解决冲突，并在本地提交；
 4. 没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
 5. 如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
+
+### 忽略文件，使文件不被git管理
+- 打开全局的忽略列表文件或者指定仓库的忽略列表文件（一般都是.gitignore），添加要被忽略的文件名，如果指定某种后缀的文件，用*.xxx(后缀)
+- 如果决定要忽略前，已经添加该文件到git，除了要修改忽略列表文件，还需要cd到项目目录下，执行命令git rm --cached xxx，删除该文件<br/>
+  如果是SourceTree做客户端，则在提交文件修改时，选择文件 - 右键 - 取消跟踪（效果即是提交一个删除该文件的修改），并修改忽略列表文件
+	
+### ios项目git设置
+.xcodeproj目录中各文件作用及SVN/Git同步
+http://blog.csdn.net/lixing333/article/details/47700687
