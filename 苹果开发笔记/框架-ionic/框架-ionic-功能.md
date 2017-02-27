@@ -8,6 +8,13 @@ $ ionic plugin add 插件目录路径 --variable APP_ID="574935876028959" --vari
 注意：
 无需改config.xml
 
+账号：有账号
+插件：有比较新的插件，插件支持分享与登录
+ionic cloud登录支持：支持
+分享集成：系统分享-有，有分享扩展能增强自带分享功能
+分享范围：系统分享-能分享到我的时间线，好友，小组
+分享内容：系统分享-message/subject不能通过传值获取要手动输入；url与图片只能选其一，多图不能用数组包含，同时含有图片和url时只发送url；
+
 
 # twitter
 ionic native - twitter
@@ -19,7 +26,12 @@ $ ionic plugin add 插件目录路径 --variable FABRIC_KEY=0f17f142ae9c150b5486
 要在项目的根config.xml插入key、secret，代码查看插件github说明，build会自动build到Staging下的config.xml
 必须系统或者客户端登录了才能登录，否则提示401
 
-
+账号：有账号
+插件：未知
+ionic cloud登录支持：支持
+分享集成：系统分享-有
+分享范围：系统分享-只有关注与被关注关系，只能分享到首页不能分享给指定朋友
+分享内容：系统分享-只能发送一张图，且不能被数组包含
 
 # google plus + google 分析 + fcm推送
 
@@ -33,8 +45,14 @@ cordova插件 - cordova-plugin-fcm "FCMPlugin"
 版本：2.1.1
 是否收费：免费
 
+账号：有账号
+插件：有比较新的插件，但插件只支持登录
+ionic cloud登录支持：不支持
+分享集成：系统分享-无，有分享扩展，但任何情况下返回后界面会卡死，需要下拉上拉系统界面或者home返回后才有可能恢复
+分享范围：系统分享-只能关注收藏集，不能关注用户；可以分享到不同圈子，无法分享到某个用户
+分享内容：系统分享-只分享url时会显示url对应页面，同时分享url与图片时url只会显示为链接，图片不能被数组包含
 
-步骤：
+集成步骤：
 1.创建项目/选择已有项目
 方式1.在add google service页面创建项目（输入app name / bundleid）
 方式2.在GoogleAPIsConsole - 所有项目 创建项目（输入app name）
@@ -64,6 +82,7 @@ REVERSED_CLIENT_ID必须跟类型为ios的Oauth2.0客户端ID一样，否则登�
 6.fcm推送
 在firebase项目配置 - 云消息传递 - iOS 应用配置 上传推送证书
 GoogleService-Info.plist文件放入cordova项目根目录，再安装插件
+xcode项目setting - capabilities 打开push开关
 注意：
 导出证书：钥匙串 - 登录 - 我的证书 - 对应bundleid的cer - 不要选择cer下的p12，而是直接选择cer导出
 
@@ -72,6 +91,31 @@ GoogleService-Info.plist文件放入cordova项目根目录，再安装插件
 谷歌分析项目管理页 - 管理 - 媒体资源
 媒体资源：相当于在这个开发者账号下创建的一个项目，对应一个bundleid，但删除项目后不会删除这个媒体资源。重新创建项目，开启分析服务时，可以重新选择这个媒体资源，TRACKING_ID不变。
 删除媒体资源：谷歌分析管理页 - 管理 - 选择一个媒体资源 - 媒体资源设置
+
+# vimeo
+账号：只能用国外邮箱注册
+插件：无
+ionic cloud登录支持：不支持
+分享集成：系统分享-自带
+分享范围：系统分享-
+分享内容：系统分享-
+
+# instagram
+账号：有账号
+插件：有一年前插件
+ionic cloud登录支持：支持
+分享集成：系统分享-有，如果有安装客户端，当分享内容为一张图片时可出现在系统自带里面；或者通过url scheme打开客户端但无法传参
+分享范围：系统分享-只有首页  
+分享内容：系统分享-只能分享一张图,message只能放到UIPasteboard，提示用户在instagram客户端粘贴
+分享sdk：无
+
+# YouTube
+账号：有账号，只能用gmail邮箱登录
+插件：无ios插件
+ionic cloud登录支持：不支持
+分享集成：系统分享-如果分享的是视频，且有安装客户端，则会出现在系统分享列表，但不知为何会提示youtube不可用
+分享范围：系统分享-
+分享内容：系统分享-
 
 # 分享
 ionic native - SocialSharing
