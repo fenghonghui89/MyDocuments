@@ -86,7 +86,7 @@ xcode项目setting - capabilities 打开push开关
 注意：
 导出证书：钥匙串 - 登录 - 我的证书 - 对应bundleid的cer - 不要选择cer下的p12，而是直接选择cer导出
 订阅新主题 最长一天后主题生效
-
+安装后要FCMPlugin.getToken一次才能用
 
 7.删除 查看
 在firebase删除项目后，google dev那里的项目也会跟着被删除，但注意，谷歌项目管理页里 - 凭据 里面的的密钥和id是不会自动删除的
