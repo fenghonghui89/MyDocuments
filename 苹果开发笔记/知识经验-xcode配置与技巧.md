@@ -27,3 +27,6 @@ xcode sdk 路径
 xcode8
 添加注释 command+alt+/
 快速搜索打开某个文件 command+shift+o
+
+在从App Store上下载Xcode后，默认是不会安装Command Line Tools的，安装方法如下
+$ xcode-select --install
