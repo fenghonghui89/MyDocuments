@@ -8,10 +8,11 @@
 
 
 查看/隐藏 隐藏文件
-defaults write com.apple.finder AppleShowAllFiles -bool true
-defaults write com.apple.finder AppleShowAllFiles -bool false
+$ defaults write com.apple.finder AppleShowAllFiles -bool true
+$ defaults write com.apple.finder AppleShowAllFiles -bool false
 
-
+查看mac版本
+$ sw_vers
 
 # iOS
 
