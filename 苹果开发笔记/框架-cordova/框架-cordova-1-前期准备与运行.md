@@ -7,8 +7,8 @@
 安装ruby（默认系统自带一个版本） — 安装Homebrew — 用Homebrew安装node.js
 
 2.安装调试工具 cordova
-$ sudo npm install -g ios-sim
-$ sudo npm install -g ios-deploy --unsafe-perm=true
+$ npm install -g ios-sim
+$ npm install -g ios-deploy
 $ npm install -g plugman
 $ npm install -g cordova
 附：https://github.com/phonegap/ios-deploy iOS-deploy安装教程
