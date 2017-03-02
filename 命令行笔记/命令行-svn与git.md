@@ -44,7 +44,7 @@ git init|把某个目录变成git可管理的仓库
 git config --global color.ui true|git输出日志时显示颜色
 git check-ignore -v Firebase.h|检查针对某个文件的.gitignore规则是否有错
 
-## 配置别名
+## 配置别名 相当于快捷命名
 
 git config [-global] alias.xxx '要代替的内容'
 注：-global 全局配置 不写则默认针对当前仓库有效
