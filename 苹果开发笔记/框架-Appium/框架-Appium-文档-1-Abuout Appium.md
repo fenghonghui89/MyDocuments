@@ -43,6 +43,17 @@ $ npm install -g appium
 $ appium
 或者官网下载桌面应用
 
+安装的时候，提示如下并卡住
+sqlite3@3.1.8 install /Users/hanyfeng/.nvm/versions/node/v6.10.0/lib/node_modules/sqlite3
+node-pre-gyp install --fallback-to-build
+则可以先npm安装 node-pre-gyp sqlite3 两个库
+安装sqlite3也会卡住，不用理会直接ctrl+z停止，然后安装appium
+如果npm方式安装慢，用cnpm
+
+
+
+
+
 ```
 Writing Tests for Appium
 ```
