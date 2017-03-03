@@ -107,6 +107,8 @@ git push origin --tags|git push不会推送标签(tag)，除非使用–tags选�
 ## 取回远程主机某个分支的更新，再与本地的指定分支合并
 ```
 格式：git pull <远程主机名> <远程分支名>:<本地分支名>
+相当于git fetch 和 git merge
+在实际使用中，git fetch更安全一些，因为在merge前，我们可以查看更新情况，然后再决定是否合并
 ```
 命令（origin:主机名，next:远程分支名）|作用
 :-|:-
@@ -171,12 +173,14 @@ git merge dev --no-ff -m "merge with no-ff"|强制禁用Fast forward模式，并
 ## 仓库关联
 命令|作用
 :-|:-
+git remote|显示已存在的远程分支
+git remote show origin|显示远程仓库的详细信息
 git remote -v|查看远程仓库信息
 git remote add origin (ssh url/https url/git url)|与远端仓库关联 origin可自定义
 git remote rm origin|解除与远端仓库的关联
 git clone (ssh url/https url/git url)|克隆远端仓库到本地
-
-
+git remote get-url --push origin|显示名为origin的远程仓库的url
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git | 修改对应的远程仓库的url为指定url
 
 ## 保存当前工作状态
 
