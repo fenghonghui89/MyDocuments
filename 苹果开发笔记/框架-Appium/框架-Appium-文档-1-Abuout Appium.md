@@ -48,7 +48,8 @@ sqlite3@3.1.8 install /Users/hanyfeng/.nvm/versions/node/v6.10.0/lib/node_module
 node-pre-gyp install --fallback-to-build
 则可以先npm安装 node-pre-gyp sqlite3 两个库
 安装sqlite3也会卡住，不用理会直接ctrl+z停止，然后安装appium
-如果npm方式安装慢，用cnpm
+npm安装可能比较慢，要耐心等
+cnpm安装可能会卡在某个下载依赖包
 
 
 

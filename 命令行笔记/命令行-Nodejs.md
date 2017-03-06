@@ -23,8 +23,11 @@ to remove, delete, or uninstall nvm - just remove the `$NVM_DIR` folder (usually
 
 ## 安装/更新
 建议用nvm安装和管理
+nvm ls-remote
+nvm install 6.10.0
+
 官网下载pkg安装包安装是root用户的 会影响其他包的使用 例如appium
-homebrew可以安装最新版nodejs，但无法很好安装旧版本nodejs
+homebrew可以安装最新版nodejs，但无法很好安装旧版本nodejs，也对nvm支持不好
 
 
 ## 卸载
