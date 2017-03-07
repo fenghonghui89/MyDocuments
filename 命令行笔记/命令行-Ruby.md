@@ -69,4 +69,4 @@ gem sources -a url
 gem sources -r url
 
 ## 列出本地名字含d的包
-gem list d
+gem list
