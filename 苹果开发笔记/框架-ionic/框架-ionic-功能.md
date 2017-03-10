@@ -97,6 +97,7 @@ ionic native - Push
 安装插件
 在GoogleAPIsConsole找到对应项目的项目编号（注意不是项目ID），安装插件和初始化时有用
 根据插件github步骤安装，注意要先在根config.xml写入插件信息再安装，否则无法成功安装插件
+$ ionic plugin add phonegap-plugin-push --variable SENDER_ID=527554869741
 
 ## 注意
 第一次运行如果不允许推送 以后运行的时候 初始化的对象也依然存在
