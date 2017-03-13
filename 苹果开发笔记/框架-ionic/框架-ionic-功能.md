@@ -54,7 +54,7 @@ ionic native - GooglePlus
 3.下载GoogleService-Info.plist
 
 4.安装插件
-在GoogleService-Info.plist找REVERSED_CLIENT_ID
+在GoogleService-Info.plist找REVERSED_CLIENT_ID(很长的一串)
 安装插件：$ ionic plugin add 插件目录路径 --variable REVERSED_CLIENT_ID=xxxx
 
 ## 注意
@@ -94,10 +94,15 @@ ionic native - GoogleAnalytics
 ionic native - Push
 
 ## 步骤
-安装插件
-在GoogleAPIsConsole找到对应项目的项目编号（注意不是项目ID），安装插件和初始化时有用
-根据插件github步骤安装，注意要先在根config.xml写入插件信息再安装，否则无法成功安装插件
-$ ionic plugin add phonegap-plugin-push --variable SENDER_ID=527554869741
+1.在GoogleAPIsConsole找到对应项目的项目编号（注意不是项目ID），安装插件和初始化时有用
+2.根据插件github步骤安装，注意要先在根config.xml写入插件信息再安装，否则无法成功安装插件
+```
+<plugin name="phonegap-plugin-push" spec="1.6.0">
+    <param name="SENDER_ID" value="695797427081" />
+</plugin>
+注意spec版本号
+```
+3.安装插件$ ionic plugin add phonegap-plugin-push --variable SENDER_ID=695797427081
 
 ## 注意
 第一次运行如果不允许推送 以后运行的时候 初始化的对象也依然存在
