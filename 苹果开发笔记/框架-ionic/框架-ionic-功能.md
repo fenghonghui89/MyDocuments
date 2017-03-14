@@ -97,7 +97,7 @@ ionic native - Push
 1.在GoogleAPIsConsole找到对应项目的项目编号（注意不是项目ID），安装插件和初始化时有用
 2.根据插件github步骤安装，注意要先在根config.xml写入插件信息再安装，否则无法成功安装插件
 ```
-<plugin name="phonegap-plugin-push" spec="1.6.0">
+<plugin name="phonegap-plugin-push" spec="1.10.0">
     <param name="SENDER_ID" value="695797427081" />
 </plugin>
 注意spec版本号
