@@ -16,7 +16,7 @@
 看官方教程
 
 ## 卸载homebrew
-看官方github F&Q
+看官网文档Frequently Asked Questions http://docs.brew.sh/FAQ.html
 
 ## 更新homebrew（更新软件包的前提）
 brew update

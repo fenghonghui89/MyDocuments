@@ -33,6 +33,32 @@ man|[命令]|查看某个命令的使用手册 例如man node
 - 2.命令行下执行脚本 ./xx.sh
 - 注：如果提示Permission denied没有权限，则运行命令chmod 777 xx.sh修改文件权限
 
+# 各分区用途
+/boot(200MB-500MB)存放启动Linux系统所必需的文件，包括内核文件、启动菜单配置文件等
+/(根)
+/home 存放所有普通系统用户的默认工作目录（宿主目录）
+/var(variable) 存放系统中经常需要变化的一些文件（如系统日志文件、用户邮箱目录等）
+/usr(UNIX Software Resource)(>2G)
+/tmp 存放系统运行过程中使用的一些临时文件
+/opt 第三方软件程序和工具
+swap是交换文件系统（一般为物理内存的1.5到2倍，必须独立分区，物理内存大于8G可以不设这个交换分区）
+
+/usr/X11 存放X window的目录
+/usr/bin 众多的应用程序
+/usr/sbin 超级用户的一些管理程序
+/usr/doc linux文档
+/usr/include linux下开发和编译应用程序所需要的头文件
+/usr/lib 常用的动态链接库和软件包的配置文件
+/usr/man 帮助文档
+/usr/src 源代码，linux内核的源代码就放在/usr/src/linux里
+/usr/local/bin 本地增加的命令
+/usr/local/lib 本地增加的库
+
+/bin 二进制可执行命令
+/dev 设备特殊文件
+/etc 系统管理和配置文件
+/etc/rc.d 启动的配置文件和脚本
+
 
 # 其他
 当前路径用./表示
