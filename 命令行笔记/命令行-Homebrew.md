@@ -4,7 +4,7 @@
 
 - 系统自带ruby，可先安装Homebrew
 - 用Homebrew更新ruby，ruby自带gem
-- 安装nvm，用nvm安装nodejs，nodejs自带npm
+- 用Homebrew安装nvm，用nvm安装nodejs，nodejs自带npm
 - 用npm安装其他需要用到的框架，因为大多数框架都是nodejs环境下的
 
 
